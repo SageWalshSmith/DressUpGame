@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.character-container {
+    position: relative;
+    width: 400px;  /* Adjust according to your character image size */
+    height: 600px; /* Adjust according to your character image size */
+}
+
+#character-base {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.wardrobe-widget {
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+}
+
+.tabs button:hover {
+    background-color: #ddd;
+}
+
+.clothing-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.clothing-item {
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.clothing-item:hover {
+    border-color: #007bff;
+}

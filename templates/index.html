@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Up Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Left Side: Character Display -->
+        <div class="character-container">
+            <!-- Character Base Image -->
+            <img id="character-base" src="{{ url_for('static', filename='assets/character/character_base.png') }}" alt="Character">
+
+            <!-- Placeholder Clothing Layers (transparent PNGs) -->
+            <img id="character-hats" class="character-layer" src="{{ url_for('static', filename='assets/hats/hat0.png') }}" alt="Hat">
+            <img id="character-shirts" class="character-layer" src="{{ url_for('static', filename='assets/shirts/shirt0.png') }}" alt="Shirt">
+        </div>
+
+        <!-- Right Side: Wardrobe Widget -->
+        <div class="wardrobe-widget">
+            <div class="tabs">
+                <button onclick="showClothing('hats')">Hats</button>
+                <button onclick="showClothing('shirts')">Shirts</button>
+            </div>
+
+            <div id="clothing-items" class="clothing-items">
+                <!-- Clothing options will be displayed here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
