@@ -22,12 +22,15 @@ body {
     height: 600px; /* Adjust according to your character image size */
 }
 
+/* Character Base Image (lowest z-index to ensure all clothing layers appear above) */
 #character-base {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 0; /* Ensuring it is at the bottom */
 }
 
+/* Clothing Layers */
 .character-layer {
     position: absolute;
     top: 0;
@@ -38,6 +41,32 @@ body {
     z-index: 1;
 }
 
+/* Layering of clothing items */
+#character-jackets {
+    z-index: 6; /* Jackets above shirts but below dresses */
+}
+
+#character-dresses {
+    z-index: 5; /* Dresses on top of all other clothing */
+}
+
+#character-pants {
+    z-index: 3; /* Pants above Shoes */
+}
+
+#character-shoes {
+    z-index: 4; /* Shoes above Socks */
+}
+
+#character-socks {
+    z-index: 2; /* Socks below Shoes, Pants, and above the base character */
+}
+
+#character-shirts {
+    z-index: 4; /* Shirts above Pants */
+}
+
+/* Wardrobe Widget */
 .wardrobe-widget {
     width: 50%;
     padding: 20px;

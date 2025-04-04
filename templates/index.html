@@ -13,9 +13,14 @@
             <!-- Character Base Image -->
             <img id="character-base" src="{{ url_for('static', filename='assets/character/character_base.png') }}" alt="Character">
 
-            <!-- Placeholder Clothing Layers (transparent PNGs) -->
+            <!-- Character Clothing Layers (Transparent PNGs) -->
             <img id="character-hats" class="character-layer" src="{{ url_for('static', filename='assets/hats/hat0.png') }}" alt="Hat">
             <img id="character-shirts" class="character-layer" src="{{ url_for('static', filename='assets/shirts/shirt0.png') }}" alt="Shirt">
+            <img id="character-jackets" class="character-layer" src="{{ url_for('static', filename='assets/jackets/jacket0.png') }}" alt="Jacket">
+            <img id="character-socks" class="character-layer" src="{{ url_for('static', filename='assets/socks/socks0.png') }}" alt="Socks">
+            <img id="character-shoes" class="character-layer" src="{{ url_for('static', filename='assets/shoes/shoes0.png') }}" alt="Shoes">
+            <img id="character-pants" class="character-layer" src="{{ url_for('static', filename='assets/pants/pants0.png') }}" alt="Pants">
+            <img id="character-dresses" class="character-layer" src="{{ url_for('static', filename='assets/dresses/dress0.png') }}" alt="Dress">
         </div>
 
         <!-- Right Side: Wardrobe Widget -->
@@ -23,6 +28,11 @@
             <div class="tabs">
                 <button onclick="showClothing('hats')">Hats</button>
                 <button onclick="showClothing('shirts')">Shirts</button>
+                <button onclick="showClothing('jackets')">Jackets</button>
+                <button onclick="showClothing('pants')">Pants</button>
+                <button onclick="showClothing('shoes')">Shoes</button>
+                <button onclick="showClothing('socks')">Socks</button>
+                <button onclick="showClothing('dresses')">Dresses</button>
             </div>
 
             <div id="clothing-items" class="clothing-items">

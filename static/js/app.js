@@ -1,53 +1,88 @@
-// Define the list of available clothing items (hats and shirts)
 const clothingData = {
     hats: [
-        'hat0.png',  // Placeholder hat
-        'hat1.png',
-        'hat2.png',
-        'hat3.png'
+        'hat0.png', 'hat1.png', 'hat2.png', 'hat3.png'
     ],
     shirts: [
-        'shirt0.png',  // Placeholder shirt
-        'shirt1.png',
-        'shirt2.png',
-        'shirt3.png'
+        'shirt0.png', 'shirt1.png', 'shirt2.png', 'shirt3.png'
+    ],
+    jackets: [
+        'jacket0.png', 'jacket1.png', 'jacket2.png', 'jacket3.png'
+    ],
+    pants: [
+        'pants0.png', 'pants1.png', 'pants2.png', 'pants3.png'
+    ],
+    shoes: [
+        'shoes0.png', 'shoes1.png', 'shoes2.png', 'shoes3.png'
+    ],
+    socks: [
+        'socks0.png', 'socks1.png', 'socks2.png', 'socks3.png'
+    ],
+    dresses: [
+        'dress0.png', 'dress1.png', 'dress2.png', 'dress3.png'
     ]
 };
 
+// Default clothing settings
+let currentPants = 'pants0.png';
+let currentShirt = 'shirt0.png';
+let currentDress = 'dress0.png';
+
 // Function to update the character with the selected clothing
 function changeClothes(itemType, itemFile) {
-    // Get the element for the specific clothing layer (hat or shirt)
     const itemElement = document.getElementById(`character-${itemType}`);
 
-    // Check if the itemElement exists before setting the src
     if (itemElement) {
         const itemSrc = `static/assets/${itemType}/${itemFile}`;
-        itemElement.src = itemSrc;  // Change the clothing layer (hat or shirt)
-        console.log(`Changed ${itemType} to ${itemSrc}`);  // Debugging line
+        itemElement.src = itemSrc;
+        console.log(`Changed ${itemType} to ${itemSrc}`);
     } else {
         console.error(`Element with id 'character-${itemType}' not found`);
     }
+
+    // Don't perform resets if 'default' items are selected
+    if (itemFile === 'dress0.png' || itemFile === 'shirt0.png' || itemFile === 'pants0.png') {
+        return;  // Skip resetting other items if any of these default items is selected
+    }
+
+    // Reset shirt and pants if a dress is selected
+    if (itemType === 'dresses') {
+        currentDress = itemFile;
+        currentPants = 'pants0.png';
+        currentShirt = 'shirt0.png';
+        changeClothes('pants', currentPants);
+        changeClothes('shirts', currentShirt);
+    }
+
+    // Reset dress if shirt or pants are selected and the current dress is not 'dress0.png'
+    if ((itemType === 'pants' || itemType === 'shirts') && currentDress !== 'dress0.png') {
+        currentDress = 'dress0.png';
+        changeClothes('dresses', currentDress);
+    }
+
+    // Update the currently selected clothing item
+    if (itemType === 'pants') {
+        currentPants = itemFile;
+    } else if (itemType === 'shirts') {
+        currentShirt = itemFile;
+    }
 }
 
-// Function to show clothing items for the selected category (hats or shirts)
+// Function to show clothing items for the selected category
 function showClothing(category) {
     const clothingItemsContainer = document.getElementById('clothing-items');
     clothingItemsContainer.innerHTML = '';  // Clear any previously displayed clothing items
 
-    // Loop through the clothing data for the selected category (e.g., hats or shirts)
     clothingData[category].forEach(item => {
         const imgElement = document.createElement('img');
         imgElement.src = `static/assets/${category}/${item}`;
         imgElement.alt = item;
         imgElement.classList.add('clothing-item');
 
-        // Add a click event to change the character's clothes
         imgElement.onclick = () => {
             console.log(`Selected ${item} from ${category}`);
             changeClothes(category, item);
         };
 
-        // Append the item to the clothing items container
         clothingItemsContainer.appendChild(imgElement);
     });
 }
