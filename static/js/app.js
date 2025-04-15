@@ -39,12 +39,10 @@ function changeClothes(itemType, itemFile) {
         console.error(`Element with id 'character-${itemType}' not found`);
     }
 
-    // Don't perform resets if 'default' items are selected
     if (itemFile === 'dress0.png' || itemFile === 'shirt0.png' || itemFile === 'pants0.png') {
-        return;  // Skip resetting other items if any of these default items is selected
+        return;
     }
 
-    // Reset shirt and pants if a dress is selected
     if (itemType === 'dresses') {
         currentDress = itemFile;
         currentPants = 'pants0.png';
@@ -53,13 +51,11 @@ function changeClothes(itemType, itemFile) {
         changeClothes('shirts', currentShirt);
     }
 
-    // Reset dress if shirt or pants are selected and the current dress is not 'dress0.png'
     if ((itemType === 'pants' || itemType === 'shirts') && currentDress !== 'dress0.png') {
         currentDress = 'dress0.png';
         changeClothes('dresses', currentDress);
     }
 
-    // Update the currently selected clothing item
     if (itemType === 'pants') {
         currentPants = itemFile;
     } else if (itemType === 'shirts') {
