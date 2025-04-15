@@ -3,7 +3,7 @@ const clothingData = {
         'hat0.png', 'hat1.png', 'hat2.png', 'hat3.png'
     ],
     shirts: [
-        'shirt0.png', 'shirt1.png', 'shirt2.png', 'shirt3.png'
+        'shirt0.png', 'shirt1.png', 'shirt2.png', 'shirt3.png', 'shirt4.png', 'shirt5.png', 'shirt6.png'
     ],
     jackets: [
         'jacket0.png', 'jacket1.png', 'jacket2.png', 'jacket3.png'

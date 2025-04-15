@@ -18,8 +18,8 @@ body {
 
 .character-container {
     position: relative;
-    width: 400px;  /* Adjust according to your character image size */
-    height: 600px; /* Adjust according to your character image size */
+    width: auto;  /* Adjust according to your character image size */
+    height: auto; /* Adjust according to your character image size */
 }
 
 /* Character Base Image (lowest z-index to ensure all clothing layers appear above) */
@@ -99,8 +99,8 @@ body {
 }
 
 .clothing-item {
-    width: 60px;
-    height: 90px;
+    width: 120px;
+    height: 180px;
     object-fit: cover;
     cursor: pointer;
     border: 2px solid transparent;
